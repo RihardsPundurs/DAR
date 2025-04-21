@@ -3,7 +3,7 @@
 ## Instelācija
 1. Klonēt repositoriju:
    ```bash
-   git clone https://github.com/yourusername/DAR-main.git
+   git clone https://github.com/RihardsPundurs/DAR-main.git
    cd DAR-main
 
 2. Instalēt atkarības:
