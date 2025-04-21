@@ -1,4 +1,3 @@
-# Worker-related queries
 GET_ALL_WORKERS = """
 SELECT id, vards_uzvards, datums, nostradatas_stundas, padaritais_darbs 
 FROM stradnieka_apkopojums
@@ -10,13 +9,11 @@ INSERT INTO stradnieka_apkopojums
 VALUES (%s, %s, %s, %s)
 """
 
-# Employer-related queries
 GET_ALL_EMPLOYERS = """
 SELECT id, vards_uzvards, izvertejums, alga 
 FROM uzņemeja_apkopojums
 """
 
-# User authentication queries
 GET_USER_BY_USERNAME = """
 SELECT id, username, password_hash, salt, is_admin 
 FROM users 

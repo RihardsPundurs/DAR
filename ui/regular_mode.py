@@ -9,7 +9,7 @@ from database.db_connection import DatabaseConnection
 class RegularModeWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Darba Uzskaite - Parasts Režīms")
+        self.setWindowTitle("Darba Uzskaite - Strādnieks")
         self.setFixedSize(500, 400)
         
         central_widget = QWidget()
@@ -18,7 +18,6 @@ class RegularModeWindow(QMainWindow):
         layout = QVBoxLayout()
         central_widget.setLayout(layout)
         
-        # Form for worker data
         form = QFormLayout()
         
         self.name_input = QLineEdit()
@@ -44,7 +43,6 @@ class RegularModeWindow(QMainWindow):
         layout.addWidget(login_btn)
     
     def save_worker_data(self):
-        """Save worker data to database"""
         try:
             db = DatabaseConnection().get_connection()
             cursor = db.cursor()
@@ -64,7 +62,6 @@ class RegularModeWindow(QMainWindow):
             db.commit()
             QMessageBox.information(self, "Veiksmīgi", "Dati saglabāti!")
             
-            # Clear inputs
             self.name_input.clear()
             self.work_input.clear()
             self.hours_input.setValue(0)
@@ -73,7 +70,6 @@ class RegularModeWindow(QMainWindow):
             QMessageBox.critical(self, "Kļūda", f"Neizdevās saglabāt datus: {e}")
     
     def show_login(self):
-        """Switch to login window"""
         from ui.login_window import LoginWindow
         self.login_window = LoginWindow()
         self.login_window.show()

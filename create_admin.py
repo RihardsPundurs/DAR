@@ -1,4 +1,3 @@
-# create_admin.py
 from utils.auth import hash_password
 from database.db_connection import DatabaseConnection
 
@@ -9,10 +8,10 @@ def create_admin_account(username="admin", password="admin123"):
         db = DatabaseConnection().get_connection()
         cursor = db.cursor()
         
-        # Delete existing admin if exists
+        # Izdzēst veco adminu ja eksistē
         cursor.execute("DELETE FROM users WHERE username = 'admin'")
         
-        # Create new admin
+        # Izveidot jaunu adminu
         cursor.execute(
             "INSERT INTO users (username, password_hash, salt, is_admin) "
             "VALUES (%s, %s, %s, %s)",
@@ -27,6 +26,8 @@ def create_admin_account(username="admin", password="admin123"):
         cursor.close()
 
 if __name__ == "__main__":
+
+    # Ja atstāts tukšs, izmantot admin/admin123
     name=input("Ievadi jaunu lietotājvārdu (ja atstāts tukšs, tiks izmantots \"admin\")")
     passw=input("Ievadi jaunu paroli (ja atstāts tukšs, tiks izmantots \"admin123\")")
     if name == "":

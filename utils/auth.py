@@ -1,20 +1,19 @@
-# utils/auth.py
 import hashlib
 from database.db_connection import DatabaseConnection
 import bcrypt
 
 def hash_password(password: str):
-    """Returns both hashed password and salt"""
+    # Atgriež hash un salt
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password.encode('utf-8'), salt)
     return hashed.decode('utf-8'), salt.decode('utf-8')
 
 def verify_password(stored_hash, salt, input_password):
-    """Verify password using bcrypt"""
+    # Verificē paroli
     return bcrypt.checkpw(input_password.encode('utf-8'), stored_hash.encode('utf-8'))
 
 def authenticate_user(username, password):
-    """Authenticate user against database"""
+    #Autentificē lietotāju pret datubāzi
     try:
         db = DatabaseConnection().get_connection()
         cursor = db.cursor(dictionary=True)

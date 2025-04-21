@@ -52,12 +52,11 @@ class AdminPanel(QMainWindow):
     
     def create_employer_tab(self):
         tab = QWidget()
-        self.tabs.addTab(tab, "Uzņēmēju dati")
+        self.tabs.addTab(tab, "Uzņēmēja atskaite")
         
         layout = QVBoxLayout()
         tab.setLayout(layout)
         
-        # Employer form
         form = QFormLayout()
         
         self.emp_name_input = QLineEdit()
@@ -74,7 +73,6 @@ class AdminPanel(QMainWindow):
         submit_btn = QPushButton("Saglabāt")
         submit_btn.clicked.connect(self.save_employer_data)
         
-        # Employer table
         self.employer_table = QTableWidget()
         self.employer_table.setColumnCount(4)
         self.employer_table.setHorizontalHeaderLabels([
@@ -128,7 +126,7 @@ class AdminPanel(QMainWindow):
                 self.employer_table.setItem(row_idx, 3, QTableWidgetItem(str(employer['alga'])))
                 
         except Exception as e:
-            QMessageBox.critical(self, "Kļūda", f"Nevar ielādēt uzņēmēju datus: {e}")
+            QMessageBox.critical(self, "Kļūda", f"Nevar ielādēt uzņēmēja atskaiti: {e}")
     
     def save_employer_data(self):
         try:
@@ -147,15 +145,14 @@ class AdminPanel(QMainWindow):
             )
             
             db.commit()
-            QMessageBox.information(self, "Veiksmīgi", "Uzņēmēja dati saglabāti!")
+            QMessageBox.information(self, "Veiksmīgi", "Uzņēmēja atskaite saglabāta!")
             
-            # Clear inputs and refresh table
             self.emp_name_input.clear()
             self.emp_salary_input.setValue(0)
             self.load_employer_data()
             
         except Exception as e:
-            QMessageBox.critical(self, "Kļūda", f"Neizdevās saglabāt datus: {e}")
+            QMessageBox.critical(self, "Kļūda", f"Neizdevās saglabāt atskaiti: {e}")
     
     def logout(self):
         from ui.regular_mode import RegularModeWindow
