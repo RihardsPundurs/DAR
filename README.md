@@ -22,8 +22,8 @@
    python create_admin.py```
 
 ## Izmantošana
-*Windows - izmantot launch.bat
-*Linux - izmantot launch.sh
+* Windows - izmantot launch.bat
+* Linux - izmantot launch.sh
 
 ## Konfigurācija
 Kopēt .env.example uz .env un pamainīt:
@@ -36,7 +36,7 @@ Kopēt .env.example uz .env un pamainīt:
 ## Administratora pieja
 Pamata administratora informācija
 * Lietotājvārds: admin
-* Parole: admin123
+* Parole: admin123```
 
 Lai pamainītu administratora paroli un vārdu, jāpalaiž create_admin.py konsolē
    ```cmd
