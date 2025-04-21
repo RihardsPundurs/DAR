@@ -26,12 +26,11 @@ def create_admin_account(username="admin", password="admin123"):
         cursor.close()
 
 if __name__ == "__main__":
-
     # Ja atstāts tukšs, izmantot admin/admin123
-    name=input("Ievadi jaunu lietotājvārdu (ja atstāts tukšs, tiks izmantots \"admin\")")
-    passw=input("Ievadi jaunu paroli (ja atstāts tukšs, tiks izmantots \"admin123\")")
-    if name == "":
-        name = "admin"
-    if passw == "":
-        passw = "admin123"
-    create_admin_account(name,passw)
+    username=input("Ievadi jaunu lietotājvārdu (ja atstāts tukšs, tiks izmantots \"admin\")")
+    password=input("Ievadi jaunu paroli (ja atstāts tukšs, tiks izmantots \"admin123\")")
+    if username == "":
+        username = "admin"
+    if password == "":
+        password = "admin123"
+    create_admin_account(username,password)
