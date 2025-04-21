@@ -1,4 +1,4 @@
-# Darba Uzskaites Sistēma
+# Darba Atskaites Rīks
 
 ## Instelācija
 1. Klonēt repositoriju:
